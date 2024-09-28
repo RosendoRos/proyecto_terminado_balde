@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Tareas</title>
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="preload" href="css/tareas.css" as="style">
+    <link href="css/tareas.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <style>
+       .circular-btn {
+            width: 40px; 
+            height: 40px;
+            border-radius: 50%;
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            padding: 0;
+            border: none; 
+            background-color: #007bff; 
+            color: white; 
+            transition: background-color 0.3s; 
+            outline: none;
+            margin-left: auto;
+        }
+
+        .circular-btn:hover {
+            background-color: #0056b3; 
+        }
+    </style>
+<nav>
+    <ul id="menu-nav">
+        <li><a href="index.html">Gestión de Proyectos</a></li>
+        <li><a href="tareas.html">Gestión de Tareas</a></li>
+        <li><a href="colaboracion.html">Colaboración en Tiempo Real</a></li>
+        <li><a href="seguimiento.html">Seguimiento de Progreso y Reportes</a></li>
+    </ul>
+</nav>
+
+
+    <section class="servicio">
+        <h2 style="margin-top: 10px;">Gestión de Tareas</h2>
+
+        <!-- Buscador de tareas -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Buscar tarea...">
+            <button onclick="buscarTarea()">
+                <img src="./img/lupa.png" alt="Buscar" width="20">
+            </button>
+        </div>
+
+        <!-- Mensaje cuando no hay tareas -->
+        <p id="mensajeSinTareas" style="display: none; text-align: center;">SIN TAREAS</p>
+
+        <!-- Tabla de tareas -->
+        <div class="table-responsive">
+            <table class="table" id="tablaTareas" style="display: none; text-align: center">
+                <thead>
+                    <tr>
+                        <th>Número</th>
+                        <th>Título</th>
+                        <th>Fecha Límite</th>
+                        <th>Estado</th>
+                        <th>Miembro</th>
+                        <th>Prioridad</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        
+
+        <div id="mensajeSinTareas" style="display: none;"></div>
+        <button id="botonRestaurar" style="display: none;" class="btn btn-secondary" onclick="restaurarTabla()">Restaurar</button>
+        
+        <div id="detalleTareaContainer"></div>
+                
+        <nav aria-label="Page navigation example" id="paginacion">
+            <ul class="pagination">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous" onclick="cambiarPagina(-1)">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#" onclick="cambiarPagina(1)">1</a></li>
+                <li class="page-item"><a class="page-link" href="#" onclick="cambiarPagina(2)">2</a></li>
+                <li class="page-item"><a class="page-link" href="#" onclick="cambiarPagina(3)">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next" onclick="cambiarPagina(1)">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>        
+
+        <div class="text-right mb-3">
+            <button class="btn btn-primary circular-btn" onclick="toggleMenu()">
+                <img width="30" height="30" src="https://img.icons8.com/ios/50/plus-math--v1.png" alt="plus-math--v1"/>        </div>
+        <div class="menu-option">
+            <div id="menuOpciones" style="display: none; text-align: right;">
+                <button class="btn btn-secondary" onclick="mostrarFormularioTarea()">Agregar Tarea</button>
+                <button class="btn btn-secondary" onclick="mostrarFormularioMiembro()">Agregar Miembro</button>
+            </div>
+        </div>
+
+        <!-- Formulario para agregar nuevas tareas -->
+        <div id="formularioTarea" style="display: none;">
+            <h3 id="tituloFormulario">Agregar Nueva Tarea</h3>
+            <form class="task-form">
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <label for="nuevaTarea">Nombre:</label>
+                        <input type="text" class="form-control" id="nuevaTarea" placeholder="Título de la tarea" required>
+                    </div>
+        
+                    <!-- Campo Fecha -->
+                    <div class="col-md-3 mb-3">
+                        <label for="nuevaFecha">Fecha:</label>
+                        <input type="date" class="form-control" id="nuevaFecha" required>
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <label for="miembroSeleccionado">Miembro:</label>
+                        <select id="miembroSeleccionado" class="form-control" required>
+                            <option value="">Seleccionar miembro</option>
+                        </select>
+                    </div>
+                    
+                    <div class="col-md-3">
+                        <label for="prioridadSeleccionada">Prioridad:</label>
+                        <select id="prioridadSeleccionada" class="form-control">
+                            <option value="">Seleccionar Prioridad</option>
+                            <option value="baja">baja</option>
+                            <option value="normal" selected>normal</option>
+                            <option value="alta">alta</option>
+                        </select>
+                    </div>
+                </div>
+        
+                <!-- Campo Detalles (ocupa toda la fila) -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="detalles">Detalles:</label>
+                        <textarea id="detalles" class="form-control" rows="4" placeholder="Detalles de la tarea"></textarea>
+                    </div>
+                </div>
+        
+                <!-- Botones de acción -->
+                <div class="row">
+                    <div class="col-md-12 text-right">
+                        <button id="botonGuardar" class="btn btn-primary" onclick="agregarTarea()">Agregar Tarea</button>
+                        <button type="button" class="btn btn-danger" onclick="ocultarFormularioTarea()">Cancelar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+
+        <!-- Formulario para agregar miembros -->
+        <div id="formularioMiembro" style="display: none;">
+            <h3>Agregar Nuevo Miembro</h3>
+            <div class="task-form">
+                <input type="text" id="nuevoMiembroNombre" placeholder="Nombre del miembro" required>
+                <input type="email" id="nuevoMiembroEmail" placeholder="Email del miembro" required>
+                <div class="button-group" style="text-align: right;">
+                    <button class="btn btn-primary" onclick="agregarMiembro()">Agregar Miembro</button>
+                    <button class="btn btn-danger" onclick="ocultarFormularioMiembro()">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Script externo -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>

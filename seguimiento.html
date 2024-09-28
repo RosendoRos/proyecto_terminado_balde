@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguimiento de Progreso y Reportes</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="preload" href="css/styles.css" as="styles">
+    <link href="css/styles.css" rel="stylesheet">
+    <style>
+        /* Estilos para mejorar el diseño */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .navegacion-principal a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 15px 20px;
+            border-radius: 5px;
+        }
+
+        .navegacion-principal a:hover {
+            background-color: #0056b3;
+        }
+
+        main {
+            background-color: white;
+            padding: 30px;
+            margin: 20px auto;
+            width: 90%;
+            max-width: 1000px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+    <script>
+        // Función para eliminar un proyecto completado
+        function completarProyecto(rowId) {
+            const row = document.getElementById(rowId);
+            row.remove();
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1 class="titulo">Seguimiento de Progreso y Reportes</h1>
+    </header>
+
+    <div class="nav-bg">
+        <nav class="navegacion-principal contenedor">
+            <a href="index.html">Gestión de Proyectos</a>
+            <a href="tareas.html">Gestión de Tareas</a>
+            <a href="colaboracion.html">Colaboración en Tiempo Real</a>
+            <a href="seguimiento.html">Seguimiento de Progreso y Reportes</a>
+        </nav>
+    </div>
+
+    <main class="contenedor sombra">
+        <h2>Proyectos Pendientes</h2>
+
+        <table class="tabla-proyectos">
+            <thead>
+                <tr>
+                    <th>ID Proyecto</th>
+                    <th>Nombre del Proyecto</th>
+                    <th>Descripción</th>
+                    <th>Estado</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Ejemplo de proyectos -->
+                <tr id="proyecto1">
+                    <td>001</td>
+                    <td>Diseño de Página Web</td>
+                    <td>Diseño completo de una página web empresarial.</td>
+                    <td>Pendiente</td>
+                    <td><button onclick="completarProyecto('proyecto1')">Completado</button></td>
+                </tr>
+                <tr id="proyecto2">
+                    <td>002</td>
+                    <td>Desarrollo de Aplicación Móvil</td>
+                    <td>Desarrollo de una app para iOS y Android.</td>
+                    <td>Pendiente</td>
+                    <td><button onclick="completarProyecto('proyecto2')">Completado</button></td>
+                </tr>
+                <tr id="proyecto3">
+                    <td>003</td>
+                    <td>Implementación de E-Commerce</td>
+                    <td>Plataforma de comercio electrónico para cliente.</td>
+                    <td>Pendiente</td>
+                    <td><button onclick="completarProyecto('proyecto3')">Completado</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 . Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>

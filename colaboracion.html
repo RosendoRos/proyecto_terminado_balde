@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colaboración en Tiempo Real</title>
+    
+    <!-- Normalización y estilos personalizados -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href="css/styles.css" rel="stylesheet">
+
+    <!-- Fuente de Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('img/Colaboracion.jpeg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            text-align: center;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #575757;
+            border-radius: 5px;
+        }
+
+        /* Container */
+        .container {
+            width: 80%;
+            margin: 120px auto 20px;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+        }
+
+        h1 {
+            text-align: center;
+            color: #0097a7;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            background-color: #0097a7;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .comments, .chat, .forum {
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-section input, .input-section textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-section input:focus, .input-section textarea:focus {
+            border-color: #0097a7;
+        }
+
+        .input-section button {
+            background-color: #ffc107;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .input-section button:hover {
+            background-color: #ffa000;
+        }
+
+        .message {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+            display: inline-block;
+            max-width: 70%;
+            word-wrap: break-word;
+        }
+
+        .message.left {
+            background-color: #e5e5ea;
+            align-self: flex-start;
+        }
+
+        .message.right {
+            background-color: #007aff;
+            color: white;
+            align-self: flex-end;
+            margin-left: auto;
+        }
+
+        /* Chat Section */
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            height: 400px;
+            overflow-y: scroll;
+            padding: 10px;
+        }
+
+        /* Back Button */
+        #backButton {
+            display: block;
+            width: 150px;
+            margin: 0 auto;
+            padding: 10px;
+            text-align: center;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        #backButton:hover {
+            background-color: #555;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .navbar a {
+                padding: 10px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Barra de navegación -->
+<div class="navbar">
+    <a href="index.html">Gestión de Proyectos</a>
+    <a href="tareas.html">Gestión de Tareas</a>
+    <a href="colaboracion.html">Colaboración en Tiempo Real</a>
+    <a href="seguimiento.html">Seguimiento de Progreso y Reportes</a>
+</div>
+
+<div class="container">
+    <!-- Título principal -->
+    <h1>Colaboración en Tiempo Real</h1>
+
+    <!-- Sección de Comentarios en Tareas -->
+    <div class="section">
+        <h2>Comentarios en Tareas</h2>
+        <div class="comments" id="comments">
+            <div class="message">Este es un ejemplo de comentario de tarea 1.</div>
+            <div class="message">Este es un ejemplo de comentario de tarea 2.</div>
+        </div>
+        <div class="input-section">
+            <textarea id="commentInput" placeholder="Escribe un comentario..."></textarea>
+            <button onclick="addComment()">Añadir Comentario</button>
+        </div>
+    </div>
+
+    <!-- Sección de Chat Simple -->
+    <div class="section">
+        <h2>Chat Simple</h2>
+        <div class="chat chat-container" id="chat">
+            <div class="message left">Persona 1: Hola, ¿cómo va el proyecto?</div>
+            <div class="message right">Persona 2: Todo bien, ya casi terminamos.</div>
+        </div>
+        <div class="input-section">
+            <input type="text" id="chatInput" placeholder="Escribe un mensaje...">
+            <select id="sender">
+                <option value="left">Persona 1</option>
+                <option value="right">Persona 2</option>
+            </select>
+            <button onclick="sendMessage()">Enviar</button>
+        </div>
+    </div>
+
+    <!-- Sección de Foros de Discusión -->
+    <div class="section">
+        <h2>Foros de Discusión</h2>
+        <div class="forum" id="forum">
+            <div class="message">Tema 1: Discusión sobre el módulo de tareas.</div>
+            <div class="message">Tema 2: Ideas para mejorar la colaboración en tiempo real.</div>
+        </div>
+        <div class="input-section">
+            <input type="text" id="forumInput" placeholder="Inicia un nuevo tema...">
+            <button onclick="addForumTopic()">Añadir Tema</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Función para añadir un comentario
+    function addComment() {
+        const commentInput = document.getElementById('commentInput');
+        const comment = commentInput.value.trim();
+
+        if (comment) {
+            const commentsDiv = document.getElementById('comments');
+            const commentElement = document.createElement('div');
+            commentElement.className = 'message';
+            commentElement.textContent = comment;
+            commentsDiv.appendChild(commentElement);
+
+            commentInput.value = ''; // Limpiar el campo de entrada
+        } else {
+            alert('Por favor, escribe un comentario.');
+        }
+    }
+
+    // Función para enviar un mensaje en el chat estilo Messenger
+    function sendMessage() {
+        const chatInput = document.getElementById('chatInput');
+        const message = chatInput.value.trim();
+        const sender = document.getElementById('sender').value;
+
+        if (message) {
+            const chatDiv = document.getElementById('chat');
+            const messageElement = document.createElement('div');
+            messageElement.className = `message ${sender}`;
+            messageElement.textContent = `${sender === 'left' ? 'Persona 1' : 'Persona 2'}: ${message}`;
+            chatDiv.appendChild(messageElement);
+
+            chatInput.value = ''; // Limpiar el campo de entrada
+            chatDiv.scrollTop = chatDiv.scrollHeight; // Desplazar al final del chat
+        } else {
+            alert('Por favor, escribe un mensaje.');
+        }
+    }
+
+    // Función para añadir un tema al foro
+    function addForumTopic() {
+        const forumInput = document.getElementById('forumInput');
+        const topic = forumInput.value.trim();
+
+        if (topic) {
+            const forumDiv = document.getElementById('forum');
+            const topicElement = document.createElement('div');
+            topicElement.className = 'message';
+            topicElement.textContent = topic;
+            forumDiv.appendChild(topicElement);
+
+            forumInput.value = ''; // Limpiar el campo de entrada
+        } else {
+            alert('Por favor, escribe un tema.');
+        }
+    }
+</script>
+
+<footer>
+    <p>&copy; 2024 . Todos los derechos reservados.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión de proyectos</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="preload" href="css/styles.css" as="styles">
+    <link href="css/styles.css"rel="stylesheet">
+</head>
+<body class="body">
+    <header>    
+        <h1 class="titulo">Sistema de Gestión de proyectos </h1>  
+     </header>
+<div class="nav-bg">
+    <nav class="navegacion-principal contenedor">
+        <a href="index.html">Gestión de Proyectos</a> <!-- Redirige a la página de inicio -->
+        <a href="tareas.html">Gestión de Tareas</a> <!-- Redirige a la página Sobre Mi -->
+        <a href="colaboracion.html">Colaboración en Tiempo Real</a> <!-- Redirige a la página Clientes -->
+        <a href="seguimiento.html">Seguimiento de Progreso y Reportes</a> <!-- Redirige a la página Contacto -->
+    </nav>
+    
+</div>
+
+<section class="hero">
+<div class="contenido-hero">
+
+    <h2>Sistema de Gestión de proyectos</h2>
+
+    <div class="ubicacion">
+       
+        </div>
+          
+   
+</div>
+</section>
+
+<main class="contenedor sombra">
+<div class="coco">
+    <div class="contenido-hero">
+    <H2>Proyectos</H2>
+
+    <div class="servicios">
+        <section class="servicio">
+            <h3>Proyectos</h3>
+            <div class="iconos">
+                <p>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+                        <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
+                      </svg>
+                </p>
+            </div>
+            <p>creacion de proyectos</p>
+        </section>
+        <section class="servicio">
+            <h3>Miembros</h3>
+            <div class="iconos">
+                <p>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+                        <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
+                      </svg>
+                </p>
+            </div>
+            <p>Asignación de miembros</p>
+        </section>
+        <section class="servicio">
+            <h3>Fechas</h3>
+            <div class="iconos">
+                <p>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-filled" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M16 2a1 1 0 0 1 .993 .883l.007 .117v1h1a3 3 0 0 1 2.995 2.824l.005 .176v12a3 3 0 0 1 -2.824 2.995l-.176 .005h-12a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-12a3 3 0 0 1 2.824 -2.995l.176 -.005h1v-1a1 1 0 0 1 1.993 -.117l.007 .117v1h6v-1a1 1 0 0 1 1 -1zm3 7h-14v9.625c0 .705 .386 1.286 .883 1.366l.117 .009h12c.513 0 .936 -.53 .993 -1.215l.007 -.16v-9.625z" stroke-width="0" fill="#000000" />
+                        <path d="M12 12a1 1 0 0 1 .993 .883l.007 .117v3a1 1 0 0 1 -1.993 .117l-.007 -.117v-2a1 1 0 0 1 -.117 -1.993l.117 -.007h1z" stroke-width="0" fill="#000000" />
+                    </svg>
+                    
+                    
+                </p>
+            </div>
+            <p>Agregar fechas</p>
+        </section>
+    </div>
+</div>
+</div>
+
+<!--div cierre de la clase de servicios-->
+       
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD de Proyectos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        input[type="text"], input[type="email"], input[type="date"], textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 4px 0;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 16px;
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<section>
+    <h2>Datos</h2>
+    <form class="formulario" id="projectForm">
+        <fieldset>
+            <legend>Gestión de Proyectos</legend>
+
+            <div class="contenedor-campos">
+                <div class="campo">
+                    <label>Nombre del Proyecto</label>
+                    <input class="input-text" type="text" id="projectName" placeholder="Nombre del proyecto" required>
+                </div>
+                <div class="campo">
+                    <label>Asignación de Miembros</label>
+                    <input class="input-text" type="text" id="members" placeholder="Asignación de miembros" required>
+                </div>
+                <div class="campo">  
+                    <label>Fecha de Inicio</label>
+                    <input class="input-text" type="date" id="startDate" required>
+                </div>
+                <div class="campo">
+                    <label>Fecha de Fin</label>
+                    <input class="input-text" type="date" id="endDate" required>
+                </div>
+            </div>
+            <button class="boton" type="submit">Agregar</button>
+        </fieldset>
+    </form>
+</section>
+
+<!-- Tabla para mostrar los proyectos -->
+<h3>Proyectos Registrados</h3>
+<table id="projectTable">
+    <thead>
+        <tr>
+            <th>Nombre del Proyecto</th>
+            <th>Asignación de Miembros</th>
+            <th>Fecha de Inicio</th>
+            <th>Fecha de Fin</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Aquí se mostrarán los proyectos -->
+    </tbody>
+</table>
+
+<script>
+    document.getElementById('projectForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Obtener los valores de los campos
+        const projectName = document.getElementById('projectName').value;
+        const members = document.getElementById('members').value;
+        const startDate = document.getElementById('startDate').value;
+        const endDate = document.getElementById('endDate').value;
+
+        // Crear una nueva fila en la tabla
+        const table = document.getElementById('projectTable').getElementsByTagName('tbody')[0];
+        const newRow = table.insertRow();
+
+        newRow.innerHTML = `
+            <td>${projectName}</td>
+            <td>${members}</td>
+            <td>${startDate}</td>
+            <td>${endDate}</td>
+            <td>
+                <button onclick="deleteRow(this)">Eliminar</button>
+            </td>
+        `;
+
+        // Limpiar los campos del formulario
+        document.getElementById('projectForm').reset();
+    });
+
+    // Función para eliminar una fila
+    function deleteRow(button) {
+        const row = button.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+    }
+</script>
+
+<footer>
+    <p>&copy; 2024 . Todos los derechos reservados.</p>
+</footer>
+
+</body>
+</html>

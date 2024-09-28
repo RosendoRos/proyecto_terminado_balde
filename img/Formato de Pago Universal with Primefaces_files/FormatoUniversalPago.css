@@ -1,0 +1,419 @@
+/*############################## Botón Imprimir ##############################*/
+.imprimir{
+    width: 680px;
+    text-align: right;
+}
+@media print{
+    body{font-family: Arial, Helvetica, sans-serif;}
+    .imprimir{display: none;}
+    #imprimir{display: none;}
+    .formatoPagoOrgAux{background-color: white;}
+}
+
+.group:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+/*################################### Body ###################################*/
+body{
+    background-color: White;
+    color: black;
+    padding: 0px;
+    margin: 0px;
+}
+
+/*############################# Mensaje de Error #############################*/
+.mensajeError{
+    width: 620px;
+    text-align: center;
+    font-size: 18px;
+    color: red;
+    margin-top: 20px;
+    display: block;
+}
+
+/*############################# Formato de Pago ##############################*/
+.formatoPagoOrgAux{
+    width: 681px;
+    text-align: left;
+    background-color: #F6F6F6;
+    border: none;
+    padding: 0px;
+    margin: 0px auto 0px auto;
+}
+
+/*################################## Sección #################################*/
+.section{
+    width: 640px;
+    margin: 0px auto  20px auto;
+}
+.section .title{
+    height: 25px;
+    line-height: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding-left: 25px;
+    margin-bottom: 15px;
+    display: block;
+}
+.section .banda{
+    min-height: 32px;
+    font-size: 12px;
+}
+.section .valores{
+    min-height: 16px;
+    line-height: 16px;
+    font-size: 14px;
+    color: black;
+}
+.section .nombres{
+    height: 16px;
+    line-height: 12px;
+    font-size: 11px;
+    font-weight: bold;
+    color: black;
+}
+.section .nombres:after{
+    width: 620px;
+    content: " ";
+    margin-bottom: 9px;
+    display: block;
+    float: left;
+    clear: left;
+}
+
+/*############################# Sección Encabezado ###########################*/
+.encabezado{
+    width: 630px;
+    height: 150px;
+    font-size: 12px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+.encabezado .secretaria{
+    width: 300px;
+    float: left;
+}
+.encabezado .secretaria label{
+    width: 300px;
+    font-weight: bold;
+    text-align: center;
+}
+.encabezado .secretaria .lblSecretaria{font-size: 14px;}
+.encabezado .secretaria .logos img{
+    height: 90px;
+}
+.encabezado .gobierno{
+    width: 330px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: right;
+    float: left;
+}
+.encabezado .logos{
+    height: 110px;
+}
+.encabezado .gobierno .logos img{float: right;}
+.encabezado .gobierno label{
+    font-size: 19px;
+    font-weight: bold;
+}
+.encabezado img,
+.encabezado label{display: block;}
+.encabezado img{
+    padding: 5px 0px 5px 0px;
+}
+.encabezado .imgGob{
+    height: 90px;
+    margin-left: 20px;
+    border-right: 2px solid gray;
+    padding-right: 5px;
+    margin-right: 5px;
+}
+.encabezado .imgOrgAux{
+    max-width: 120px;
+    max-height: 90px;
+}
+
+/*############################ Sección Datos Pago ############################*/
+.datosPago{
+    width: 630px;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+.datosPago .nombre,
+.datosPago .valor{
+    line-height: 16px;
+    display: block;
+    float: left;
+}
+.datosPago .nombre{color: gray;}
+.datosPago .valor{color: black;}
+.datosPago .barcode{
+    width: 350px;
+    text-align: left;
+    float: left;
+}
+.datosPago .barcode .nombre{width: 80px; padding-left: 10px;}
+.datosPago .barcode .valor{width: 260px;}
+.datosPago .barcode img{
+    width: 300px;
+    height: 30px;
+    margin: 5px auto 0px 0px;
+    display: block;
+    float: left;
+}
+.datosPago .barcode .lineaCaptura{
+    width: 300px;
+    text-align: center;
+    font-weight: bold;
+    display: block;
+}
+.datosPago .barcode .referencia{
+    width: 300px;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 20px;
+    text-align: center;
+    margin: 5px auto 0px 0px;
+    display: block;
+    float: left
+}
+.datosPago .barcode .sinespacios{
+    width: 300px;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    margin: 5px auto 0px 0px;
+    display: block;
+    float: left
+}
+.datosPago .fechas{
+    width: 280px;
+    /*padding: 35px 0px 0px 20px;*/
+    padding-top: 18px;
+    float: left;
+}
+.datosPago .fechas .nombre{width: 130px;}
+.datosPago .fechas .valor{width: 150px;}
+.datosPago .total{
+    width: 630px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 14px;
+    color: black;
+    /*background-color: #CDCDCD;*/
+    margin: 0px auto 0px auto;
+    float: left;
+}
+.datosPago .total label{
+    width: auto;
+    height: 25px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 25px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-align: center;
+    display: block;
+    float: right;
+    clear: none;
+}
+.datosPago .total .nombre.total{padding-right: 10px;}
+.datosPago .total .valor.total{padding-right: 20px;}
+
+/*##################### Sección Datos del Contribuyente ######################*/
+.datosContribuyente.section{margin-bottom: 10px;}
+.datosContribuyente .banda{
+    width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.datosContribuyente .campoNombre,
+.datosContribuyente .campoObservaciones{width: 45%;}
+.datosContribuyente .campoRFC{width: 38%;}
+.datosContribuyente .campoCURP{width: 40%;}
+.datosContribuyente .campoDireccion{width: 195px;}
+.datosContribuyente .campoColonia,
+.datosContribuyente .campoLocalidad{width: 155px;}
+.datosContribuyente .campoMunicipio{width: 115px;}
+.datosContribuyente .campoEstado{width: 195px;}
+.datosContribuyente .banda label{
+    padding: 0px;
+    margin: 0px;
+    display: block;
+    float: left;
+}
+.datosContribuyente .banda label.campoNombre,
+.datosContribuyente .banda label.campoObservaciones{padding-right: 5%;}
+.datosContribuyente .camposEspeciales{
+    width: 620px;
+    text-align: left;
+    background-color: white;
+    border: none;
+    padding: 0px;
+    margin: 0px auto 0px auto;
+    display: block;
+}
+
+/*##################### Sección Datos de la Contribución #####################*/
+.datosContribucion .title{margin-bottom: 5px;}
+.datosContribucion .headers{
+    width: 620px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    color: black;
+    margin: 0px auto 0px auto;
+}
+.datosContribucion .content{
+    width: 620px;
+    margin: 0px auto 0px auto;
+    padding: 0px;
+}
+.datosContribucion tr{
+    height: 16px;
+    line-height: 16px;
+    font-size: 12px;
+}
+.datosContribucion .headers label{
+    text-align: center;
+    display: block;
+    float: left;
+}
+.datosContribucion .clave{width: 80px;}
+.datosContribucion .descripcion{width: 240px;}
+.datosContribucion .cantidad{width: 90px;}
+.datosContribucion .tarifa{width: 120px;}
+.datosContribucion .importe{width: 90px;}
+
+.datosContribucion tr .clave{width: 80px; padding: 0px; text-align: center;}
+.datosContribucion tr .descripcion{width: 225px; padding: 0px 0px 0px 15px;}
+.datosContribucion tr .cantidad{width: 60px; padding: 0px 30px 0px 0px;}
+.datosContribucion tr .tarifa{width: 80px; padding: 0px 40px 0px 0px;}
+.datosContribucion tr .importe{width: 65px; padding: 0px 25px 0px 0px;}
+
+.datosContribucion tr .descripcion{text-align: left;}
+.datosContribucion tr .cantidad,
+.datosContribucion tr .tarifa,
+.datosContribucion tr .importe{text-align: right;}
+
+.datosContribucion .subtotal,
+.datosContribucion .iva,
+.datosContribucion .total{
+    width: auto;
+    font-weight: bold;
+    margin: 5px auto 0px auto;
+    float: right;
+}
+.datosContribucion .subtotal label,
+.datosContribucion .iva label,
+.datosContribucion .total label{
+    width: auto;
+    height: 25px;
+    line-height: 25px;
+    font-size: 14px;
+    color: black;
+    text-align: right;
+    display: block;
+    float: right;
+}
+.datosContribucion .total .lblTotal{padding-right: 10px;}
+.datosContribucion .total .lblValor{padding-right: 36px;}
+//.datosContribucion .subtotal label{background-color: #EAEAEA;}
+//.datosContribucion .iva label{background-color: #DCDCDC;}
+//.datosContribucion .total label{background-color: #CDCDCD;}
+.datosContribucion .total .leyenda{
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+    font-weight: normal;
+    text-align: center;
+    margin: 0px auto 0px auto;
+    padding-right: 18px;
+    display: block;
+    clear: both;
+}
+
+.datosContribucion .total .leyendaIVA{
+    width: 158px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 11px;
+    color: black;
+    text-align: right;
+    background-color: #FFF;
+    padding-right: 220px;
+    display: block;
+    float: right;
+}
+
+/*######################### Sección Datos de Emisión #########################*/
+.emision{
+    height: 20px;
+    line-height: 20px;
+    font-size: 13px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+.emision .nombre{color: gray;}
+.emision .valor{color: black;}
+
+/*############################################################################*/
+/*# Sección Validez, Verificar, Fundamento, Contribución y Juntos del Formato */
+/*############################################################################*/
+.validez,
+.verificar,
+.fundamento,
+.contribucion,
+.juntos{
+    width: 620px;
+    line-height: normal;
+    font-size: 11px;
+    color: gray;
+    text-align: justify;
+    margin: 10px auto 10px auto;
+    display: block;
+}
+.validez{margin: 20px auto 20px auto;}
+.verificar{font-size: 10px; color: black;}
+.contribucion,
+.juntos{
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    margin-bottom: 0px;
+}
+.juntos{font-size: 13px; margin-top: 5px;}
+
+/*############################# Sección de Bancos ############################*/
+.bancos{
+    width: 620px;
+    text-align: center;
+    border: none;
+    padding: 0px;
+    margin: 10px auto 0px auto;
+    display: block;
+}
+.bancos label{
+    width: 155px;
+    line-height: 11px;
+    font-size: 11px;
+    color: gray;
+    margin-bottom: 5px;
+    display: block;
+    float: left;
+}
+.bancos .leyenda{
+    width: 620px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+    margin: 0px auto 15px auto;
+}
